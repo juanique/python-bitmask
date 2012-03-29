@@ -19,7 +19,7 @@ class BitMaskOptions(object):
 
     def next(self):
         if self._current >= len(self.keys) - 1:
-            self.current = 0
+            self._current = -1
             raise StopIteration
         else:
             self._current += 1

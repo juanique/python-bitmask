@@ -58,6 +58,13 @@ class BitMaskManipulateValues(unittest.TestCase):
 
         self.assertEqual(options_available, self.options)
 
+        #twice
+        options_available = []
+        for option in self.weekdays:
+            options_available.append(option)
+
+        self.assertEqual(options_available, self.options)
+
     def test_query_option(self):
         """If a MaskOptions object was provided, the mask
         can be queried directly"""
