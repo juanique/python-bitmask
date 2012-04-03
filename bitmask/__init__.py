@@ -32,17 +32,17 @@ class BitMask(object):
         self.options = options
 
     def has(self, opt):
-        if type(opt) == str:
+        if type(opt) != int:
             opt = self.options.options[opt]
         return self.value & opt > 0
 
     def add(self, opt):
-        if type(opt) == str:
+        if type(opt) != int:
             opt = self.options.options[opt]
         self.value = self.value | opt
 
     def set(self, opt, enabled):
-        if type(opt) == str:
+        if type(opt) != int:
             opt = self.options.options[opt]
 
         if enabled:
