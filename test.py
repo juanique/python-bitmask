@@ -83,8 +83,19 @@ class BitMaskManipulateValues(unittest.TestCase):
         happy_days.set(self.weekdays.mon, True)
         self.assertTrue(happy_days.has(self.weekdays.mon))
 
+        "Test going from true to true"
+        happy_days.set(self.weekdays.mon, True)
+        self.assertTrue(happy_days.has(self.weekdays.mon))
+
         happy_days.set(self.weekdays.mon, False)
         self.assertFalse(happy_days.has(self.weekdays.mon))
+
+        "Test going from false to false"
+        happy_days.set(self.weekdays.mon, False)
+        self.assertFalse(happy_days.has(self.weekdays.mon))
+
+        happy_days.set(self.weekdays.mon, True)
+        self.assertTrue(happy_days.has(self.weekdays.mon))
 
     def test_set_false(self):
         "A value can be set as disabled"
