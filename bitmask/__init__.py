@@ -28,6 +28,9 @@ class BitMaskOptions(object):
 class BitMask(object):
 
     def __init__(self, options, value=0):
+        if type(options) == list:
+            options = BitMaskOptions(options)
+
         self.value = value
         self.options = options
 
