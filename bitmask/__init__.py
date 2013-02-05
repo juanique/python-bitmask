@@ -51,5 +51,4 @@ class BitMask(object):
         if enabled:
             self.value = self.value | opt
         else:
-            if self.has(opt):
-                self.value = self.value ^ opt
+            self.value = self.value & ~opt
