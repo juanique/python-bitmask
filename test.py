@@ -15,6 +15,9 @@ class BitMaskUnitTest(unittest.TestCase):
         options = BitMaskOptions(['a', 'b', 'c'])
         BitMask(options=options, value=15)
 
+        b = BitMask(options=['a', 'b', 'c'], value=15)
+        self.assertEqual(type(b.options), type(options))
+
 class BitMaskManipulateValues(unittest.TestCase):
 
     def setUp(self):
@@ -36,14 +39,14 @@ class BitMaskManipulateValues(unittest.TestCase):
         self.assertEqual(self.weekdays.get_int("wed"), 4)
 
     def test_get_value(self):
-        """The value of an option can be retreived. They all
+        """The value of an option can be retrieved. They all
         start as False"""
 
         happy_days = BitMask(options=self.weekdays)
         self.assertFalse(happy_days.has(self.weekdays.mon))
 
     def test_set_value(self):
-        "The value of an option can be setted"
+        "The value of an option can be set"
 
         happy_days = BitMask(options=self.weekdays)
         happy_days.add(self.weekdays.mon)
@@ -74,14 +77,14 @@ class BitMaskManipulateValues(unittest.TestCase):
         self.assertTrue(happy_days.has(self.options[0])) # mon
 
     def test_set(self):
-        "A value can be setted as enabled"
+        "A value can be set as enabled"
 
         happy_days = BitMask(options=self.weekdays)
         happy_days.set(self.weekdays.mon, True)
         self.assertTrue(happy_days.has(self.weekdays.mon))
 
     def test_set_false(self):
-        "A value can be setted as disabled"
+        "A value can be set as disabled"
 
         happy_days = BitMask(options=self.weekdays)
         happy_days.set(self.weekdays.mon, True)
